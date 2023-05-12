@@ -69,9 +69,9 @@ let special_data : any = 5;
 console.log(special_data);
 
 //type never
+//never is a type that represents the absence of a value.
+let tnever: never = true ; 
 
-let tnever: never = true; 
-tnever  =  'example of type never'
 console.log(tnever);
 
 //type null
@@ -235,4 +235,99 @@ console.log(car);
 
 //interfaces
 
+interface Rectangle {
+  width: number;
+  height: number;
+}
 
+const rec : Rectangle = {
+  width : 10,
+  height : 20
+}
+
+console.log(rec);
+
+
+//extends interface
+
+interface Square extends Rectangle {
+  color : string;
+}
+
+const square : Square = {
+  width : 10,
+  height : 20,
+  color : "red"
+}
+
+console.log(square);
+
+
+//ts union type ============================
+
+console.log("[ts union type] in ts ============================");
+
+//when we want to use more than one type for a variable
+//we can use union type
+
+let unionType : string | number | boolean; //union type
+//we can use any instead of union type
+
+unionType = "hello world";
+unionType = 5;
+unionType = true;
+
+console.log(unionType);
+
+
+//ts functions 
+
+console.log("[ts functions] in ts ============================");
+//function declaration
+
+function add(x: number, y:number){
+  console.log(x + y);
+}
+
+add(5, 10);
+
+
+//void function
+
+function printHello(): void {
+  console.log("Hello");
+}
+printHello();
+
+//function with return type
+
+function printHello2(): string {
+  return "Hello string type return function ";
+}
+console.log(printHello2());
+
+
+//function with optional parameter
+
+function printHello3(a:number, b:number,c?:number): void {
+  console.log(a + b + (c || 0));
+}
+
+printHello3(1, 2);
+
+//default parameter
+
+function pow(val:number,pow:number =3) {
+    console.log(val ** pow);
+}
+
+pow(2,5); //32
+pow(2); //8 as default pow is 3
+
+//Named Parameters
+
+function printName(firstName: string, lastName: string): void {
+  console.log(`Hello ${firstName} ${lastName}`);
+}
+
+printName("Sayed", "Ali");
